@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ShirtMade</string>
+    <string name="app_info">衬衣定制推荐系统</string>
 </resources>
