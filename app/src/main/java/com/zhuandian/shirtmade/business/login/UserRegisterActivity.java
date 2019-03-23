@@ -25,8 +25,11 @@ public class UserRegisterActivity extends BaseActivity {
     EditText etPassword;
     @BindView(R.id.tv_register)
     TextView tvRegister;
+    @BindView(R.id.et_sure_password)
+    EditText etSurePassWord;
     private String userName;
     private String passWord;
+    private String surePassWord;
 
     @Override
     protected int getLayoutId() {
@@ -47,8 +50,11 @@ public class UserRegisterActivity extends BaseActivity {
     private void doRegister() {
         userName = etUsername.getText().toString();
         passWord = etPassword.getText().toString();
+        surePassWord = etSurePassWord.getText().toString();
         if (TextUtils.isEmpty(userName) || TextUtils.isEmpty(passWord)) {
             Toast.makeText(this, "请完善注册信息...", Toast.LENGTH_SHORT).show();
+        } else if (!passWord.equals(surePassWord)) {
+            Toast.makeText(this, "确保两次输入的密码一致...", Toast.LENGTH_SHORT).show();
         } else {
             UserEntity userEntity = new UserEntity();
             userEntity.setUsername(userName);
@@ -85,7 +91,6 @@ public class UserRegisterActivity extends BaseActivity {
                 })
                 .show();
     }
-
 
 
 }

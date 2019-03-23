@@ -21,7 +21,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/shape_login_bg"
-            android:hint="请输入手机号"
+            android:hint="请输入用户名"
             android:paddingLeft="10dp"
             android:textSize="14sp" />
 
