@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="ban_xing">
+        <item>潮流</item>
+        <item>韩版</item>
+        <item>修身款</item>
+        <item>纯棉</item>
+        <item>格纹</item>
+        <item>纯色</item>
+        <item>复古</item>
+        <item>薄款</item>
+    </string-array>
+
+    <string-array name="size">
+        <item>38/165/S</item>
+        <item>39/170/M</item>
+        <item>40/175/L</item>
+        <item>41/180/XL</item>
+        <item>42/185/XXL</item>
+        <item>43/190/XXXL</item>
+        <item>44/195/XXXXL</item>
+    </string-array>
+
+    <string-array name="material">
+        <item>棉</item>
+        <item>色织布</item>
+        <item>牛津纺</item>
+        <item>格子布</item>
+        <item>涤纶</item>
+        <item>牛仔布</item>
+        <item>亚麻布</item>
+        <item>蚕丝</item>
+        <item>羊毛</item>
+        <item>涤纶</item>
+    </string-array>
+
+    <string-array name="clothe_color">
+        <item>白色</item>
+        <item>蓝色</item>
+        <item>灰色</item>
+        <item>紫色</item>
+        <item>粉色</item>
+        <item>黑色</item>
+        <item>灰蓝</item>
+        <item>藏青</item>
+        <item>青蓝</item>
+        <item>米色</item>
+    </string-array>
+
+    <string-array name="fit_season">
+        <item>春季</item>
+        <item>夏季</item>
+        <item>秋季</item>
+        <item>冬季</item>
+        <item>四季</item>
+    </string-array>
+
+    <string-array name="occasion">
+        <item>休闲</item>
+        <item>上班</item>
+        <item>日常</item>
+        <item>旅游</item>
+        <item>婚礼</item>
+        <item>居家</item>
+        <item>沙滩</item>
+        <item>宴会</item>
+        <item>运动</item>
+        <item>舞蹈</item>
+    </string-array>
+</resources>
