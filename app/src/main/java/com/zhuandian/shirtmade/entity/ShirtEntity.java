@@ -1,5 +1,7 @@
 package com.zhuandian.shirtmade.entity;
 
+import java.io.Serializable;
+
 import cn.bmob.v3.BmobObject;
 
 /**
@@ -7,7 +9,7 @@ import cn.bmob.v3.BmobObject;
  * author：xiedong
  * date：2019/3/26
  */
-public class ShirtEntity extends BmobObject {
+public class ShirtEntity extends BmobObject implements Serializable {
     private String tixing; //体型
     private String fubu;// 腹部
     private String jian;//肩

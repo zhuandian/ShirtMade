@@ -1,15 +1,22 @@
 package com.zhuandian.shirtmade.business;
 
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.zhuandian.base.BaseActivity;
 import com.zhuandian.shirtmade.R;
+import com.zhuandian.shirtmade.entity.ShirtEntity;
+
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.OnClick;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 
 public class MadeShirtActivity extends BaseActivity {
 
@@ -22,6 +29,8 @@ public class MadeShirtActivity extends BaseActivity {
     @BindView(R.id.tv_save)
     TextView tvSave;
 
+    private ShirtEntity shirtEntity;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_made_shirt;
@@ -29,6 +38,16 @@ public class MadeShirtActivity extends BaseActivity {
 
     @Override
     protected void setUpView() {
+        shirtEntity = (ShirtEntity) getIntent().getSerializableExtra("data");
+        BmobQuery<ShirtEntity> bmobQuery = new BmobQuery<>();
+        bmobQuery.addWhereEqualTo("yanse", shirtEntity.getYanse());
+        bmobQuery.findObjects(new FindListener<ShirtEntity>() {
+            @Override
+            public void done(List<ShirtEntity> list, BmobException e) {
+                if (e == null)
+                    Glide.with(MadeShirtActivity.this).load(list.get(0).getClothesUrl()).into(ivShirt);
+            }
+        });
 
     }
 
