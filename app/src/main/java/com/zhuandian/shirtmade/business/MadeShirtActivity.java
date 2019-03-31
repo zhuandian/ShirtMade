@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.zhuandian.base.BaseActivity;
 import com.zhuandian.shirtmade.R;
 import com.zhuandian.shirtmade.entity.ShirtEntity;
+import com.zhuandian.shirtmade.entity.UserEntity;
 import com.zhuandian.shirtmade.utils.ImgDonwloads;
 
 import java.util.List;
@@ -22,6 +23,7 @@ import java.util.Random;
 import butterknife.BindView;
 import butterknife.OnClick;
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
 
@@ -47,6 +49,7 @@ public class MadeShirtActivity extends BaseActivity {
 
     @Override
     protected void setUpView() {
+        tvUserName.setText(String.format("用户 %s :您好", BmobUser.getCurrentUser(UserEntity.class).getUsername()));
         shirtEntity = (ShirtEntity) getIntent().getSerializableExtra("data");
         BmobQuery<ShirtEntity> bmobQuery = new BmobQuery<>();
 //        bmobQuery.addWhereEqualTo("yanse", shirtEntity.getYanse());
@@ -77,7 +80,7 @@ public class MadeShirtActivity extends BaseActivity {
                 madeCount++;
                 if (madeCount > 2) {
                     new AlertDialog.Builder(MadeShirtActivity.this)
-                            .setTitle("oh no ...")
+                            .setTitle("抱歉，最多可选择三次")
                             .setMessage("当前没有您想满意的衬衣样式，很抱歉")
                             .create()
                             .show();
@@ -95,14 +98,14 @@ public class MadeShirtActivity extends BaseActivity {
                         == PackageManager.PERMISSION_GRANTED) {
                     //拥有读写文件权限
                     ImgDonwloads.donwloadImg(MadeShirtActivity.this, shirtEntityList.get(madeCount).getClothesUrl());//iPath
-                }else{
+                } else {
                     //没有读写权限
                     if (ActivityCompat.shouldShowRequestPermissionRationale(MadeShirtActivity.this,
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE)){
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                         ActivityCompat.requestPermissions(MadeShirtActivity.this,
                                 new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                                 140);
-                    }else{
+                    } else {
                         ImgDonwloads.donwloadImg(MadeShirtActivity.this, shirtEntityList.get(madeCount).getClothesUrl());//iPath
                     }
                 }

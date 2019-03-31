@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.zhuandian.base.BaseActivity;
 import com.zhuandian.shirtmade.MainActivity;
 import com.zhuandian.shirtmade.R;
+import com.zhuandian.shirtmade.business.HomeActivity;
 import com.zhuandian.shirtmade.entity.UserEntity;
 
 import butterknife.BindView;
@@ -66,7 +67,7 @@ public class LoginActivity extends BaseActivity {
                 @Override
                 public void done(Object o, BmobException e) {
                     if (e == null) {
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                         finish();
                     } else {
                         Toast.makeText(LoginActivity.this, "登陆失败...", Toast.LENGTH_SHORT).show();

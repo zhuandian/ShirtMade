@@ -79,6 +79,10 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setUpView() {
+
+        tixing = new String[]{"标准体", "肥胖体", "瘦形体"}; //体型
+        fubu = new String[]{"扁腹部", "凸腹"};// 腹部
+        jian = new String[]{"耸肩", "垂肩", "不对称肩", "前倾肩"};//肩
         banxing = getResources().getStringArray(R.array.ban_xing);//版型
         chima = getResources().getStringArray(R.array.size);//尺码
         caizhi = getResources().getStringArray(R.array.material);//材质
